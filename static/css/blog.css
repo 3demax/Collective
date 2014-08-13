@@ -1,0 +1,25 @@
+/* Effective stylesheet produced by snapshot save */
+body { font-family: Georgia,"Times New Roman",Times,serif; color: rgb(85, 85, 85); }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0px; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-weight: normal; color: rgb(51, 51, 51); }
+@media (min-width: 1200px) {
+  .container { width: 970px; }
+}
+.blog-masthead { background-color: rgb(66, 139, 202); box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1) inset; }
+.blog-nav-item { position: relative; display: inline-block; padding: 10px; font-weight: 500; color: rgb(205, 221, 235); }
+.blog-nav-item:hover, .blog-nav-item:focus { color: rgb(255, 255, 255); text-decoration: none; }
+.blog-nav .active { color: rgb(255, 255, 255); }
+.blog-nav .active:after { position: absolute; bottom: 0px; left: 50%; width: 0px; height: 0px; margin-left: -5px; vertical-align: middle; content: " "; border-right: 5px solid transparent; border-bottom: 5px solid; border-left: 5px solid transparent; }
+.blog-header { padding-top: 20px; padding-bottom: 20px; }
+.blog-title { margin-top: 30px; margin-bottom: 0px; font-size: 60px; font-weight: normal; }
+.blog-description { font-size: 20px; color: rgb(153, 153, 153); }
+.blog-main { font-size: 18px; line-height: 1.5; }
+.sidebar-module { padding: 15px; margin: 0px -15px 15px; }
+.sidebar-module-inset { padding: 15px; background-color: rgb(245, 245, 245); border-radius: 4px; }
+.sidebar-module-inset p:last-child, .sidebar-module-inset ul:last-child, .sidebar-module-inset ol:last-child { margin-bottom: 0px; }
+.pager { margin-bottom: 60px; text-align: left; }
+.pager > li > a { width: 140px; padding: 10px 20px; text-align: center; border-radius: 30px; }
+.blog-post { margin-bottom: 60px; }
+.blog-post-title { margin-bottom: 5px; font-size: 40px; }
+.blog-post-meta { margin-bottom: 20px; color: rgb(153, 153, 153); }
+.blog-footer { padding: 40px 0px; color: rgb(153, 153, 153); text-align: center; background-color: rgb(249, 249, 249); border-top: 1px solid rgb(229, 229, 229); }
+.blog-footer p:last-child { margin-bottom: 0px; }
