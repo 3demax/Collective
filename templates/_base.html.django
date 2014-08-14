@@ -39,7 +39,7 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Home</a>
+          <a class="blog-nav-item" href="/">Home</a>
           <a class="blog-nav-item" href="{% url 'login' %}">Login</a>
           <a class="blog-nav-item" href="{% url 'register' %}">Register</a>
           <a class="blog-nav-item" href="{% url 'add_post' %}">Add post</a>
