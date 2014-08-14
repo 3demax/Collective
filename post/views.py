@@ -22,10 +22,6 @@ class IndexView(TemplateView):
         context['category_list'] = Category.objects.order_by('name')
         return context
 
-    # @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(IndexView, self).dispatch(*args, **kwargs)
-
 
 class AddView(CreateView):
     template_name = 'post.html.django'
@@ -44,6 +40,7 @@ class AddView(CreateView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(AddView, self).dispatch(*args, **kwargs)
+
 
 class EditView(UpdateView):
     template_name = 'post.html.django'
