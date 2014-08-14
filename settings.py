@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'south',
     'post',
     'category',
@@ -141,3 +142,8 @@ STATICFILES_DIRS = (
 # uploaded media
 MEDIA_ROOT = (os.path.join(BASE_DIR, "media"))
 MEDIA_URL = "/media/"
+
+#==============================================================================
+# django-crispy-forms
+#==============================================================================
+CRISPY_TEMPLATE_PACK = 'bootstrap'
