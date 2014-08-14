@@ -21,4 +21,6 @@ urlpatterns = urlpatterns + patterns('',
     url(r'^$', IndexView.as_view(), name="index"),
     url(r'^add/$', AddView.as_view(), name="add_post"),
     url(r'^edit/(?P<pk>[\d]+)/$', EditView.as_view(), name="edit_post"),
+    url(r'^user/(?P<username>[\w]+)/$', AuthorView.as_view(), name="user_posts"),
+    url(r'^category/(?P<category_id>[\d]+)/$', CategoryView.as_view(), name="category"),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

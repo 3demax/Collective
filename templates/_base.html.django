@@ -56,6 +56,7 @@
             <p class="lead blog-description">Simple and straight-forward collective blog.</p>
         </div>
         {% endblock content_header %}
+
         {% block content %}
         {% endblock content %}
     </div><!-- /.container -->

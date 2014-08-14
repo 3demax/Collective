@@ -1,6 +1,12 @@
 {% extends "_base.html.django" %}
 
-{% block head_title %}The Collective{% endblock head_title %}
+{% block head_title %}Posts by &quot;{{ username|default_if_none:"" }}&quot;{% endblock head_title %}
+
+{% block content_header %}
+<div class="blog-header">
+    <h1 class="blog-title">Posts by &quot;{{ username|default_if_none:"" }}&quot;</h1>
+</div>
+{% endblock content_header %}
 
 {% block content %}
 
