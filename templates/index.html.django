@@ -1,10 +1,6 @@
 {% extends "_base.html.django" %}
 
-{% block head_title %}Что такое DRWC?{% endblock head_title %}
-
-{% block extra_head %}
-    <link rel="stylesheet" href="{{STATIC_URL}}css/post.css">
-{% endblock extra_head %}
+{% block head_title %}The Collective{% endblock head_title %}
 
 {% block content %}
 

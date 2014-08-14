@@ -1,0 +1,28 @@
+{% extends "_base.html.django" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+    Enter Collective
+{% endblock %}
+
+{% block content %}
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+            <form method="post" action="{% url 'django.contrib.auth.views.login' %}" class="form-signin">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div>
+                <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+{% endblock content %}
