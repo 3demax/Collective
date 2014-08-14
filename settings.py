@@ -52,7 +52,6 @@ INSTALLED_APPS = (
     'crispy_forms',
     'south',
     'post',
-    'category',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,7 +99,7 @@ DATE_INPUT_FORMATS = (
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 TIME_ZONE = 'Europe/Kiev'
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'en-us'
 DATE_FORMAT = 'd E Y'
 # TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -126,7 +125,7 @@ ALLOWED_HOSTS = ['*']
 # Storages
 #==============================================================================
 
-#LOGIN_URL="/register/"
+LOGIN_URL="/login/"
 
 #==============================================================================
 # Storages

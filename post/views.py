@@ -3,13 +3,13 @@ from django.views.generic import TemplateView
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from datetime import date
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-# from post.models import Post
+from post.models import Post
 
 class IndexView(TemplateView):
     template_name = 'index.html.django'
@@ -17,7 +17,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(IndexView, self).get_context_data(**kwargs)
-        # context['post_list'] = Posts.objects.filter(is_published=True).order_by('-publish_date')[0:10]
+        context['post_list'] = Post.objects.filter(is_published=True).order_by('-publish_date')[0:3]
         return context
 
     # @method_decorator(login_required)

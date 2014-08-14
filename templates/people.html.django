@@ -1,0 +1,21 @@
+{% extends "_base.html.django" %}
+
+{% block head_title %}Что такое DRWC?{% endblock head_title %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{STATIC_URL}}css/post.css">
+{% endblock extra_head %}
+
+{% block content %}
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+{% endblock content %}

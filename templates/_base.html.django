@@ -46,6 +46,12 @@
     {% endblock header %}
 
     <div class="container">
+        {% block content_header %}
+        <div class="blog-header">
+            <h1 class="blog-title">The Collective</h1>
+            <p class="lead blog-description">Simple and straight-forward collective blog.</p>
+        </div>
+        {% endblock content_header %}
         {% block content %}
         {% endblock content %}
     </div><!-- /.container -->
@@ -65,7 +71,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{STATIC_URL}}lib/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="Blog%20Template%20for%20Bootstrap_files/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
 
 {% block extra_scripts %}
 {% endblock extra_scripts %}
