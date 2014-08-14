@@ -44,6 +44,7 @@
           <a class="blog-nav-item" href="{% url 'register' %}">Register</a>
           <a class="blog-nav-item" href="{% url 'add_post' %}">Add post</a>
           <a class="blog-nav-item" href="#">Search</a>
+          <a class="blog-nav-item" href="{% url 'logout' %}">Logout</a>
         </nav>
       </div>
     </div>
