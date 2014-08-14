@@ -18,6 +18,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='author')
     category = models.ForeignKey(Category, related_name='category')
 
+    def get_absolute_url(self):
+        return '/'
+
     def __unicode__(self):
         return self.title
 
