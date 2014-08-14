@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from post.models import Post
+from post.models import Post, Category
 
 class IndexView(TemplateView):
     template_name = 'index.html.django'
@@ -19,6 +19,7 @@ class IndexView(TemplateView):
         # Call the base implementation first to get a context
         context = super(IndexView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.filter(is_published=True).order_by('-publish_date')[0:3]
+        context['category_list'] = Category.objects.order_by('name')
         return context
 
     # @method_decorator(login_required)
