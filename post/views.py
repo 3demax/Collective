@@ -16,10 +16,9 @@ from post.models import Post, Category
 
 
 class IndexView(TemplateView):
-    template_name = 'index.html.django'
+    template_name = 'post_list.html.django'
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(IndexView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.filter(is_published=True).order_by('-publish_date')[0:3]
         context['category_list'] = Category.objects.order_by('name')
@@ -56,10 +55,9 @@ class EditView(UpdateView):
 
 
 class AuthorView(TemplateView):
-    template_name = 'user.html.django'
+    template_name = 'post_list.html.django'
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(AuthorView, self).get_context_data(**kwargs)
         username = self.kwargs.get('username', '')
         get_object_or_404(User, username=username)
@@ -70,10 +68,9 @@ class AuthorView(TemplateView):
 
 
 class CategoryView(TemplateView):
-    template_name = 'category.html.django'
+    template_name = 'post_list.html.django'
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(CategoryView, self).get_context_data(**kwargs)
         category_id = self.kwargs.get('category_id', '')
         get_object_or_404(Category, category__id=category_id)
@@ -87,7 +84,6 @@ class SearchView(ListView):
     template_name = 'post_list.html.django'
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(SearchView, self).get_context_data(**kwargs)
         context['search_term'] = self.request.GET.get('q', '')
         context['category_list'] = Category.objects.order_by('name')
