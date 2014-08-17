@@ -12,7 +12,7 @@
         </p>
         <p>{{ post.text }}</p>
         <p class="blog-post-meta">
-            Posted in <span>&quot;{{ post.category }}&quot;</span>
+            Posted in <span><a href="{% url 'category' post.category.id %}">&quot;{{ post.category }}&quot;</a></span>
         </p>
     </div><!-- /.blog-post -->
     {% endfor %}
