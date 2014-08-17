@@ -99,4 +99,4 @@ class SearchView(ListView):
                  Q(text__icontains=term) |
                  Q(category__name__icontains=term)
             )
-        return Post.objects.filter(q)
+        return Post.objects.filter(q)[:3]
