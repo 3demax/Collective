@@ -42,8 +42,8 @@
           <a class="blog-nav-item" href="/">Home</a>
           <a class="blog-nav-item" href="{% url 'add_post' %}">Add post</a>
         </nav>
-        <form class="blog-nav-form navbar-form navbar-left">
-          <input type="text" class="form-control" placeholder="Enter name or title">
+        <form class="blog-nav-form navbar-form navbar-left" action="/search/">
+          <input type="text" class="form-control" placeholder="Enter name or title" name="q">
           <button type="submit" class="btn btn-default">Search</button>
         </form>
         <nav class="blog-nav nav navbar-nav navbar-right">
@@ -53,19 +53,18 @@
           <a class="blog-nav-item" href="{% url 'register' %}">Register</a>
           <a class="blog-nav-item" href="{% url 'login' %}">Login</a>
           {% endif %}
-
         </nav>
       </div>
     </div>
     {% endblock header %}
 
     <div class="container">
-        {% block content_header %}
         <div class="blog-header">
             <h1 class="blog-title">The Collective</h1>
+            {% block header_description %}
             <p class="lead blog-description">Simple and straight-forward collective blog.</p>
+            {% endblock header_description %}
         </div>
-        {% endblock content_header %}
 
         {% block content %}
         {% endblock content %}

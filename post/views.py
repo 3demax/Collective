@@ -4,11 +4,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from datetime import date
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import ListView
 from django.contrib.auth.models import User
 
 from post.models import Post, Category
@@ -78,3 +79,26 @@ class CategoryView(TemplateView):
         context['post_list'] = Post.objects.filter(category__id=category_id).order_by('-publish_date')[0:3]
         context['category_list'] = Category.objects.order_by('name')
         return context
+
+
+class SearchView(ListView):
+    template_name = 'post_list.html.django'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(SearchView, self).get_context_data(**kwargs)
+        context['search_term'] = self.request.GET.get('q', '')
+        context['category_list'] = Category.objects.order_by('name')
+        return context
+
+    def get_queryset(self):
+        search_term = self.request.GET.get('q', '')
+        terms = search_term.split(' ')
+        q = Q()
+        for term in terms:
+            q = (q |
+                 Q(title__icontains=term) |
+                 Q(text__icontains=term) |
+                 Q(category__name__icontains=term)
+            )
+        return Post.objects.filter(q)
