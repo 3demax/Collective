@@ -65,6 +65,7 @@ class AuthorView(TemplateView):
         get_object_or_404(User, username=username)
         context['post_list'] = Post.objects.filter(is_published=True, author__username=username).order_by('-publish_date')[:3]
         context['category_list'] = Category.objects.order_by('name')
+        context['author_username'] = username
         return context
 
 
@@ -76,7 +77,7 @@ class CategoryView(TemplateView):
         context = super(CategoryView, self).get_context_data(**kwargs)
         category_id = self.kwargs.get('category_id', '')
         get_object_or_404(Category, category__id=category_id)
-        context['category'] = Category.objects.filter(category__id=category_id).first()
+        context['category_name'] = Category.objects.filter(category__id=category_id).first()
         context['post_list'] = Post.objects.filter(category__id=category_id).order_by('-publish_date')[:3]
         context['category_list'] = Category.objects.order_by('name')
         return context

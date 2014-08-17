@@ -2,18 +2,24 @@
 
 {% block head_title %}Posts in &quot;{{ category|default_if_none:"" }}&quot;{% endblock head_title %}
 
-{% block content_header %}
-<div class="blog-header">
-    <h1 class="blog-title">Posts in &quot;{{ category|default_if_none:"" }}&quot;</h1>
-</div>
-{% endblock content_header %}
+{% block header_description %}
+    {% if category_name %}
+        <p class="lead blog-description">Posts in &quot;{{ category_name|default_if_none:"" }}&quot;</p>
+    {% elif author_username %}
+        <p class="lead blog-description">Posts by &quot;{{ author_username|default_if_none:"" }}&quot;</p>
+    {% elif search_term %}
+        <p class="lead blog-description">Search results for &quot;{{ search_term|default_if_none:"" }}&quot;</p>
+    {% else %}
+        <p class="lead blog-description">Simple and straight-forward collective blog.</p>
+    {% endif %}
+{% endblock header_description %}
 
 {% block content %}
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
-            {% include 'post/post.html.django' with post_list=post_list %}
+            {% include 'post/post_item.html.django' with post_list=post_list %}
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">

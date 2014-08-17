@@ -3,7 +3,6 @@
 {% block head_title %}The Collective{% endblock head_title %}
 
 {% block header_description %}
-<div class="blog-header">
     {% if category_name %}
         <p class="lead blog-description">Posts in &quot;{{ category_name|default_if_none:"" }}&quot;</p>
     {% elif author_username %}
@@ -13,7 +12,6 @@
     {% else %}
         <p class="lead blog-description">Simple and straight-forward collective blog.</p>
     {% endif %}
-</div>
 {% endblock header_description %}
 
 {% block content %}
@@ -21,7 +19,7 @@
       <div class="row">
 
         <div class="col-sm-8 blog-main">
-            {% include 'post/post.html.django' with post_list=post_list %}
+            {% include 'post/post_item.html.django' with post_list=post_list %}
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
