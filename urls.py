@@ -23,6 +23,5 @@ urlpatterns = urlpatterns + patterns('',
     url(r'^edit/(?P<pk>[\d]+)/$', EditView.as_view(), name="edit_post"),
     url(r'^user/(?P<username>[\w]+)/$', AuthorView.as_view(), name="user_posts"),
     url(r'^category/(?P<category_id>[\d]+)/$', CategoryView.as_view(), name="category"),
-    url(r'^search/(?P<search_term>[\w]+)/$', SearchView.as_view(), name="category"),
-    url(r'^search/$', SearchView.as_view(), name="category"),
+    url(r'^search/$', SearchView.as_view(), name="search"),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

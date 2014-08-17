@@ -42,7 +42,7 @@
           <a class="blog-nav-item" href="/">Home</a>
           <a class="blog-nav-item" href="{% url 'add_post' %}">Add post</a>
         </nav>
-        <form class="blog-nav-form navbar-form navbar-left" action="/search/">
+        <form class="blog-nav-form navbar-form navbar-left" action="{% url 'search' %}">
           <input type="text" class="form-control" placeholder="Enter name or title" name="q">
           <button type="submit" class="btn btn-default">Search</button>
         </form>

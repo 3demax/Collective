@@ -1,0 +1,23 @@
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>Welcome</h4>
+    {% if user.is_authenticated %}
+        Nice to see you, {{ user.username }}!
+    {% else %}
+    <p>In order to create a post, you should
+        <a href="{% url 'login' %}">login</a> or
+        <a href="{% url 'register' %}">register</a>
+    </p>
+    {% endif %}
+  </div>
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    {% if category_list %}
+      <ol class="list-unstyled">
+        {% for category in category_list %}
+            <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+      </ol>
+    {% else %}
+        No categories yet
+    {% endif %}
+  </div>

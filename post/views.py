@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 
 from post.models import Post, Category
 
+
 class IndexView(TemplateView):
     template_name = 'index.html.django'
 
@@ -26,7 +27,7 @@ class IndexView(TemplateView):
 
 
 class AddView(CreateView):
-    template_name = 'post.html.django'
+    template_name = 'add_post.html.django'
     model = Post
     fields = ['title', 'text', 'category']
 
@@ -45,7 +46,7 @@ class AddView(CreateView):
 
 
 class EditView(UpdateView):
-    template_name = 'post.html.django'
+    template_name = 'add_post.html.django'
     model = Post
     fields = ['title', 'text', 'category']
 
@@ -62,7 +63,7 @@ class AuthorView(TemplateView):
         context = super(AuthorView, self).get_context_data(**kwargs)
         username = self.kwargs.get('username', '')
         get_object_or_404(User, username=username)
-        context['post_list'] = Post.objects.filter(is_published=True, author__username=username).order_by('-publish_date')[0:3]
+        context['post_list'] = Post.objects.filter(is_published=True, author__username=username).order_by('-publish_date')[:3]
         context['category_list'] = Category.objects.order_by('name')
         return context
 
@@ -76,7 +77,7 @@ class CategoryView(TemplateView):
         category_id = self.kwargs.get('category_id', '')
         get_object_or_404(Category, category__id=category_id)
         context['category'] = Category.objects.filter(category__id=category_id).first()
-        context['post_list'] = Post.objects.filter(category__id=category_id).order_by('-publish_date')[0:3]
+        context['post_list'] = Post.objects.filter(category__id=category_id).order_by('-publish_date')[:3]
         context['category_list'] = Category.objects.order_by('name')
         return context
 
