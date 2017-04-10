@@ -3,11 +3,16 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
+
 class Category(models.Model):
     name = models.CharField(_('name'),  max_length=200, help_text=_('Name of category'))
 
     def __unicode__(self):
         return self.name
+
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
     title = models.CharField(_('title'), max_length=200, help_text=_('Title'))
@@ -22,6 +27,9 @@ class Post(models.Model):
         return '/'
 
     def __unicode__(self):
+        return self.title
+
+    def __str__(self):
         return self.title
 
     class Meta:

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+
+{% block head_title %}
+  {% if category_name %}
+      &quot;{{ category_name|default_if_none:"" }}&quot; category on
+  {% elif author_username %}
+      &quot;{{ author_username|default_if_none:"" }}&quot;s posts on
+  {% elif search_term %}
+      search for &quot;{{ search_term|default_if_none:"" }}&quot; -
+  {% endif %}The Collective
+{% endblock head_title %}
+
+
+{% block extra_navigation %}
+  {% include 'post/blocks/extra_navigation.html' %}
+{% endblock extra_navigation %}
+
+
+{% block header_description %}
+  {% if category_name %}
+      <p class="lead blog-description">Posts in &quot;{{ category_name|default_if_none:"" }}&quot;</p>
+  {% elif author_username %}
+      <p class="lead blog-description">Posts by &quot;{{ author_username|default_if_none:"" }}&quot;</p>
+  {% elif search_term %}
+      <p class="lead blog-description">Search results for &quot;{{ search_term|default_if_none:"" }}&quot;</p>
+  {% endif %}
+{% endblock header_description %}
+
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-8 blog-main">
+        {% include 'post/blocks/post_item.html' with post_list=post_list %}
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        {% include 'post/blocks/login_or_register.html'%}
+      </div>
+      <div class="sidebar-module">
+        <h4>Categories</h4>
+        {% include 'post/blocks/category_list.html' with category_list=category_list %}
+      </div>
+    </div><!-- /.blog-sidebar -->
+  </div><!-- /.row -->
+{% endblock content %}
+
+
+{% block post_login_or_register %}
+  <h4>Welcome</h4>
+  {% if user.is_authenticated %}
+      Nice to see you, {{ user.username }}!
+  {% else %}
+  <p>In order to create a post, you should
+      <a href="{% url 'login' %}">login</a> or
+      <a href="{% url 'register' %}">register</a>
+  </p>
+  {% endif %}
+{% endblock %}
+
+
+{% block post_categories %}
+
+{% endblock %}

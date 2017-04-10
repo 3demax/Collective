@@ -16,7 +16,7 @@ from post.models import Post, Category
 
 
 class IndexView(TemplateView):
-    template_name = 'post_list.html.django'
+    template_name = 'post/post_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -26,7 +26,7 @@ class IndexView(TemplateView):
 
 
 class AddView(CreateView):
-    template_name = 'add_post.html.django'
+    template_name = 'post/add_post.html'
     model = Post
     fields = ['title', 'text', 'category']
 
@@ -45,7 +45,7 @@ class AddView(CreateView):
 
 
 class EditView(UpdateView):
-    template_name = 'add_post.html.django'
+    template_name = 'post/add_post.html'
     model = Post
     fields = ['title', 'text', 'category']
 
@@ -55,7 +55,7 @@ class EditView(UpdateView):
 
 
 class AuthorView(TemplateView):
-    template_name = 'post_list.html.django'
+    template_name = 'post/post_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(AuthorView, self).get_context_data(**kwargs)
@@ -68,7 +68,7 @@ class AuthorView(TemplateView):
 
 
 class CategoryView(TemplateView):
-    template_name = 'post_list.html.django'
+    template_name = 'post/post_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
@@ -81,7 +81,7 @@ class CategoryView(TemplateView):
 
 
 class SearchView(ListView):
-    template_name = 'post_list.html.django'
+    template_name = 'post/post_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)

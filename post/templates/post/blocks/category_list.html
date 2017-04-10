@@ -1,0 +1,9 @@
+{% if category_list %}
+  <ol class="list-unstyled">
+    {% for category in category_list %}
+        <li><a href="{% url 'post:category' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ol>
+{% else %}
+    No categories yet
+{% endif %}

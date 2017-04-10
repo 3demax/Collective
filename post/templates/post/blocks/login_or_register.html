@@ -1,0 +1,9 @@
+<h4>Welcome</h4>
+{% if user.is_authenticated %}
+    Nice to see you, {{ user.username }}!
+{% else %}
+<p>In order to create a post, you should
+    <a href="{% url 'login' %}">login</a> or
+    <a href="{% url 'register' %}">register</a>
+</p>
+{% endif %}
