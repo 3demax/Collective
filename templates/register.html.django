@@ -1,4 +1,4 @@
-{% extends "_base.html.django" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}

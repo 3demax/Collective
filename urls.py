@@ -1,6 +1,7 @@
 import django
 from django.conf.urls import include, url
-from django.contrib import admin, auth
+from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 admin.autodiscover()
@@ -18,12 +19,10 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(r'^login/$', django.contrib.auth.login,
+    url(r'^login/$', auth_views.LoginView.as_view(),
         {'template_name': 'login.html.django'}, name="login"),
     url(r'^register/$', RegistrationView.as_view(), name="register"),
-    url(r'^logout/$', django.contrib.auth.logout, name="logout"),
-
-    url(r'^user/(?P<username>[\w]+)/$', AuthorView.as_view(), name="user_posts"),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name="logout"),
 
     url(r'^', include('post.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
