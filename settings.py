@@ -19,22 +19,21 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 's=z2!dm0wiRthbdcob4)0imf5-rnjw(ovz%cqsvtg84#x_x!_'
+SECRET_KEY = os.environ.get('SECRET_KEY', False)
 
 #==============================================================================
 # Debug/production
 #==============================================================================
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = []
-# try:
-#     DEBUG = os.environ['DEBUG'] == 'True'
-#     TEMPLATE_DEBUG = DEBUG
-# except KeyError:
-#     DEBUG = False
-#     TEMPLATE_DEBUG = False
+DEBUG = bool(os.environ.get('DEBUG', 'True'))
 
-DEBUG = True
+ALLOWED_HOSTS = [
+    ''
+]
+
+# Allow all host headers
+# ALLOWED_HOSTS = ['*']
 
 #==============================================================================
 # Stuff
@@ -99,6 +98,7 @@ DATE_INPUT_FORMATS = (
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -128,12 +128,6 @@ APPEND_SLASH = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-#dirty, dirty hack
-# LOGIN_REDIRECT_URL = "/"
-
 #==============================================================================
 # Storages
 #==============================================================================
@@ -154,7 +148,6 @@ MEDIA_URL = "/media/"
 # django-crispy-forms
 #==============================================================================
 CRISPY_TEMPLATE_PACK = 'bootstrap'
-
 
 #==============================================================================
 # Misc
