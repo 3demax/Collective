@@ -7,7 +7,6 @@ Collective is dead simple collaborative blog, where users can add and edit their
 
 To run test server
 
-    python manage.py syncdb
     python manage.py migrate
     python manage.py runserver
 
