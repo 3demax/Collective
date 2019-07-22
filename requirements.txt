@@ -1,8 +1,10 @@
 backports-abc==0.5
 backports.functools-lru-cache==1.5
 beautifulsoup4==4.8.0
+dj-database-url==0.5.0
 Django==1.11
 django-crispy-forms==1.7.2
+django-heroku==0.3.1
 django-livereload==1.7
 django-social-auth==0.7.28
 futures==3.3.0
@@ -10,9 +12,11 @@ httplib2==0.13.0
 oauth2==1.9.0.post1
 pip-autoremove==0.9.1
 pipdeptree==0.13.2
+psycopg2==2.8.3
 python-openid==2.2.5
 pytz==2019.1
 singledispatch==3.4.0.3
 six==1.12.0
 soupsieve==1.9.2
 tornado==5.1.1
+whitenoise==4.1.3
