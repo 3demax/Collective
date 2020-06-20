@@ -2,7 +2,7 @@ backports-abc==0.5
 backports.functools-lru-cache==1.5
 beautifulsoup4==4.8.0
 dj-database-url==0.5.0
-Django==1.11
+Django==1.11.29
 django-crispy-forms==1.7.2
 django-heroku==0.3.1
 django-livereload==1.7
